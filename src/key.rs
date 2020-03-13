@@ -144,6 +144,7 @@ impl SecretKey {
         Ok(Signature { v, r, s })
     }
 
+    /// Get the Raw_SecretKey.
     pub fn unprotected(&self) -> String {
         self.secret.get_protected()
     }

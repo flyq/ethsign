@@ -1,5 +1,5 @@
 use zeroize::Zeroize;
-use hex::encode;
+use hex;
 
 /// A protected set of bytes.
 #[derive(Clone)]
@@ -22,8 +22,9 @@ impl Protected {
     pub fn new<T: Into<Vec<u8>>>(m: T) -> Self {
         Protected(m.into())
     }
+    /// Get Raw Secret Key.
     pub fn get_protected(&self) -> String {
-        encode(self.0)
+        hex::encode(self.0.clone())
     }
 }
 
