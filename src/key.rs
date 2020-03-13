@@ -143,6 +143,10 @@ impl SecretKey {
 
         Ok(Signature { v, r, s })
     }
+
+    pub fn unprotected(&self) -> String {
+        self.secret.get_protected()
+    }
 }
 
 #[cfg(test)]

@@ -22,7 +22,7 @@ impl Protected {
     pub fn new<T: Into<Vec<u8>>>(m: T) -> Self {
         Protected(m.into())
     }
-    pub fn get_protected() -> String {
+    pub fn get_protected(&self) -> String {
         encode(self.0)
     }
 }
