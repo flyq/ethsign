@@ -65,7 +65,9 @@ fn main() {
     let public = signature.recover(&message).unwrap();
     println!("the public is {:?}", public);
 
-    println!("the secret is {:?}", secret.unprotected());
+    println!("the raw secret is {:?}", secret.unprotected());
+
+    println!("the secret is {:?}", secret);
 
     // Verify the signature
     let res = public.verify(&signature, &message).unwrap();
